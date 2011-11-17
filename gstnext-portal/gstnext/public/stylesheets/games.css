@@ -1,0 +1,160 @@
+.games-box
+{
+	width:500px;
+	min-height:300px;
+	background-color:#efeeea;
+	margin-top:20px;
+	margin-left:20px;
+
+	padding-top:10px;
+	float:left;
+}
+
+.games-box .box-header
+{
+	padding-left:20px;
+}
+
+.menu-label
+{
+	color:#75a9e2;
+	font-size:14px;
+}
+
+img.arrow
+{
+	padding-left:4px;
+	margin-top:0.9px;
+	float:left;
+}
+
+.new-game-section
+{
+	padding-left:19px;
+}
+
+.new-game-section input
+{
+	float:left;
+}
+
+.new-game-section .small-button
+{
+	float:left;
+	margin-top:2px;
+	margin-left:7px;
+}
+
+.small-button
+{
+	background:url("/public/images/games/small-button.png") no-repeat transparent;
+	width:72px;
+	height:22px;
+	font-size:12px;
+	text-align:center;
+	padding-top:3px;
+}
+
+.small-button:active
+{
+	background:url("/public/images/games/small-button-highlight.png") no-repeat transparent;
+}
+
+.button-container a
+{
+	text-decoration:none;
+	color:#FFF;
+}
+
+.divider
+{
+	clear:both;
+	background-color:#808080;
+	width:100%;
+	height:5px;
+}
+
+.your-games-section .menu-label
+{
+	padding-left:20px;
+	padding-top:3px;
+}
+
+#games-list
+{
+	font-size:15px;
+	margin-bottom:20px;
+}
+
+.game-left
+{
+	padding-left:25px;
+	margin-top:4px;
+	float:left;
+}
+
+.game-right
+{
+	float:right;
+	margin-right:30px;
+	margin-top:3px;
+}
+
+.game-name
+{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.game-name:hover
+{
+	background-color:#bfbebc;
+}
+
+.feature-button
+{
+	float:right;
+	margin-right:30px;
+}
+
+.feature-key
+{
+	width:150px;
+	float:right;
+}
+
+.feature-name
+{
+	width:150px;
+	float:right;
+}
+
+.game-features
+{
+	display:none;
+}
+
+.arrow:hover
+{
+	cursor:pointer;
+}
+
+.game-feature-odd
+{
+	background-color:#FFF;
+}
+
+.game-feature-even
+{
+	background-color:#bfbebc;
+}
+
+.game-feature
+{
+	padding-top:3px;
+}
+
+.greyed-out
+{
+	color:grey;
+}

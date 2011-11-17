@@ -1,0 +1,63 @@
+#{extends 'main.html' /}
+#{set title:'Next Technology - Your Games List' /}
+#{set product: 'matchmaking' /}
+#{set pagename: 'games' /}
+#{set 'moreStyles'}
+	#{stylesheet 'games.css' /}
+#{/set}
+
+#{set 'moreScripts'}
+	#{script 'games.js' /}
+	<script type="text/javascript">
+		//temporary stuff for setting game list and features
+		setNumGames(${gameList.size()});
+		#{list gameFeatures, as:'feature'}
+			addFeature('${feature}');
+		#{/list}
+		
+	</script>
+	<script type="text/javascript">
+		var loginAction = #{jsAction @loginRegister() /};
+		$('#result').load(
+		loginAction(), 
+		function() {
+			//$('#content').css('visibility', 'visible');
+		});
+	</script>
+#{/set}
+
+<div id="result">
+</div>
+
+<div class="games-box">
+	<div class="box-header">
+		add or change games
+	</div>
+	<div class="menu-label">
+		<img class="arrow" src="/public/images/games/arrow.png"> 
+		new
+	</div>
+	<div class="new-game-section">
+		<input id="new-game-name" type="text" />
+		<div class="button-container">
+			<a id="new-game-button" href="#" onclick="return false;">
+				<div class="small-button">
+					<span>submit</span>
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="divider">
+		&nbsp;
+	</div>
+	<div class="your-games-section">
+		<div class="menu-label">
+			your games
+		</div>
+		<div id="games-list">
+			#{list gameList, as:'gameName'}
+				#{include 'games/gamerow.html' /}
+			#{/list}
+		</div>
+	</div>
+</div>

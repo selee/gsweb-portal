@@ -1,0 +1,102 @@
+#register-box
+{
+	position:relative;
+}
+
+.loginregister-box
+{
+	width:400px;
+	height:300px;
+	background-color:#efeeea;
+	margin-top:20px;
+	margin-left:20px;
+	padding-left:20px;
+	padding-top:10px;
+	float:left;
+}
+
+
+
+.form-contents
+{
+	margin-top:5px;
+	color:#75a9e2;
+	font-size:12px;
+}
+
+.form-contents label
+{
+	padding-left:1px;
+}
+
+.form-section
+{
+	width:190px;
+	float:left;
+	margin-bottom:8px;
+}
+
+.form-section input
+{
+	width:180px;
+}
+
+.form-section input#email
+{
+	width:370px;
+}
+
+#email-section
+{
+	width:380px;
+}
+
+
+#register-container
+{
+	margin:auto;
+}
+
+
+#register-box .disclaimer
+{
+	text-align:center;
+	width:180px;
+	margin:auto;
+}
+
+#login-box .form-contents
+{
+	font-size:15px;
+}
+
+#login-box .form-section
+{
+	width:201px;
+}
+
+.button
+{
+
+	padding-top:10px;
+	clear:both;
+	width:155px;
+	height:45px;
+	font-size:20px;
+	text-align:center;
+	background:url("/public/images/loginregister/button.png") no-repeat transparent;
+}
+
+.button:active
+{
+	background:url("/public/images/loginregister/button-highlight.png") no-repeat transparent;
+}
+
+.button a
+{
+	color:#FFF;
+	text-decoration:none;
+}
+
+
+

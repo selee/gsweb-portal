@@ -1,0 +1,26 @@
+<div id="game-1">
+ 	<div class="game-name">
+		<div class="game-left">
+			<img class="arrow" src="/public/images/games/arrow.png" 
+			id="feature-arrow-${gameName_index}">
+			${gameName}
+		</div>
+		<div class="game-right">
+			<div class="button-container">
+				<a href="#" onclick="return false;">
+					<div class="small-button">
+						<span>delete</span>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="clear"> </div>
+	</div>
+	<div class="game-features" id="features-${gameName_index}">
+		#{list gameFeatures, as:'gameFeature'}
+			#{include 'games/gamefeature.html' /}
+		#{/list}
+	</div>
+	<div class="clear"></div>
+
+</div>

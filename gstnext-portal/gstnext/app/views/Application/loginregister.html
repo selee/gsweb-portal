@@ -1,0 +1,92 @@
+#{extends 'main.html' /}
+#{set title:'Next Technology - Login or Register' /}
+#{set pagename: 'login or register' /}
+#{set product: 'matchmaking' /}
+#{set 'moreStyles'}
+	#{stylesheet 'loginregister.css' /}
+#{/set}
+
+<div class="loginregister-box" id="register-box">
+	<div class="box-header">
+		sign up for<br/>matchmaking now!
+	</div>
+	<div class="form-contents">
+		<form>
+			<div class="form-section">
+				<label for="username">user name</label>
+				<div class="form-input">
+					<input type="text" name="username" id="username" />
+				</div>
+			</div>
+			<div class="form-section">
+				<label for="company">company</label>
+				<div class="form-input">
+					<input type="text" name="company" id="company" />
+				</div>
+			</div>
+			<div class="form-section" id="email-section">
+				<label for="email">email</label>
+				<div class="form-input">
+					<input type="text" name="email" id="email" />
+				</div>
+			</div>
+			<div class="form-section">
+				<label for="password">password</label>
+				<div class="form-input">
+					<input type="password" name="password" id="password" />
+				</div>
+			</div>
+			<div class="form-section">
+				<label for="passwordconfirm">retype password</label>
+				<div class="form-input">
+					<input type="password" name="passwordconfirm" id="passwordconfirm" />
+				</div>
+			</div>
+			<div class="clear"> </div>
+			<div class="button" id="register-container">
+				<a href="#">
+					<div>
+						<span>
+							Register
+						<span>
+					</div>
+				</a>
+			</div>
+			
+			<div class="disclaimer">
+				FINE PRINT ABOUT WHAT YOU ARE
+				PRETENDING TO READ AND AGREEING TO
+			</div>
+		</form>
+	</div>
+</div>
+<div class="loginregister-box" id="login-box">
+	<div class="box-header">
+		already have an account?<br/>log in here!
+	</div>
+	<div class="form-contents">
+		<form>
+			<div class="form-section">
+				<label for="username">user name</label>
+				<div class="form-input">
+					<input type="text" name="username" id="username" />
+				</div>
+			</div>
+			<div class="form-section">
+				<label for="company">company</label>
+				<div class="form-input">
+					<input type="text" name="company" id="company" />
+				</div>
+			</div>
+			<div class="button-container">
+				<div class="clear button">
+					<a href="#">
+						<div>
+							<span>Login</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
