@@ -1,0 +1,9 @@
+.classpath
+.project
+.buildpath
+.settings/
+/tmp
+/modules
+/lib
+/test-result
+/logs
