@@ -2,16 +2,67 @@ var numGames = 0;
 var featuresCollapsed = new Array();
 var featuresList = new Array();
 var numFeatures = 0;
+var user;
 
 $(document).ready(function()
 {
-	for(var i = 1; i <= numGames; i++)
-	{
-		initArrow(i);
-		initFeatures(i);
-	}
+	getUser();
 	initNewGame();
+	//addGames();
 });
+
+function getUser()
+{
+	$.get('http://ec2-67-202-6-195.compute-1.amazonaws.com/person/79bfcd53a7e657367f5bf443370018f9', 
+	function(data)
+	{
+		user = $.parseJSON(data);
+		
+		$('#welcome').text("Welcome, " + user.owner);
+		
+		for(var i = 0; i < user.applications.length; i++)
+		{
+			$.get('http://ec2-67-202-6-195.compute-1.amazonaws.com/application/' + user.applications[0], 
+			function(appData)
+			{
+				app = $.parseJSON(appData);
+				addRow(encodeURI(app.name), app._id);
+			});
+		}
+	});
+	
+}
+
+//temporary function to add a bunch of games
+function addGames()
+{
+	addRow(encodeURI('Street Fighter III: 3rd Strike'), numGames);
+	numGames++;
+	addRow(encodeURI('Grand Theft Auto IV'), numGames);
+	numGames++;
+	addRow(encodeURI('Red Dead Redemption'), numGames);
+	numGames++;
+}
+
+function addRow(name, id)
+{
+	$('#games-list').append('<div id="game-' + id + '"></div>');
+	$('#game-' + id).load(createRow({gameId: id, gameName: name }),
+		function()
+		{
+			initArrow(id);
+			initFeatures(id);
+			initDelete(id);
+		});
+}
+
+function initDelete(n)
+{
+	$('#delete-' + n).click(function()
+	{
+		$('#game-' + n).remove();
+	});
+}
 
 function setNumGames(n)
 {
@@ -70,7 +121,6 @@ function initArrow(n)
 			featuresCollapsed[n] = true;
 			$('#features-' + n).slideUp();
 		}
-		
 	});
 	featuresCollapsed[n] = true;
 }
@@ -79,14 +129,11 @@ function initNewGame()
 {
 	$('#new-game-button').click(function()
 	{
-		var gameName = $('#new-game-name').text();
+		var gameName = $('#new-game-name').val();
 		if(gameName)
 		{
-			
+			addRow(encodeURI(gameName), numGames);
+			numGames++;
 		}
 	});
 }
-
-//#new-game-name
-//#new-game-button
-

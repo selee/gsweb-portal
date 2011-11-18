@@ -10,19 +10,13 @@
 	#{script 'games.js' /}
 	<script type="text/javascript">
 		//temporary stuff for setting game list and features
-		setNumGames(${gameList.size()});
 		#{list gameFeatures, as:'feature'}
 			addFeature('${feature}');
 		#{/list}
 		
 	</script>
 	<script type="text/javascript">
-		var loginAction = #{jsAction @loginRegister() /};
-		$('#result').load(
-		loginAction(), 
-		function() {
-			//$('#content').css('visibility', 'visible');
-		});
+		var createRow = #{jsAction @gameRow(':gameName', ':gameId') /};
 	</script>
 #{/set}
 
@@ -55,9 +49,6 @@
 			your games
 		</div>
 		<div id="games-list">
-			#{list gameList, as:'gameName'}
-				#{include 'games/gamerow.html' /}
-			#{/list}
 		</div>
 	</div>
 </div>

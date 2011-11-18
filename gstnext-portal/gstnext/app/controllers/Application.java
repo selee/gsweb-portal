@@ -25,4 +25,13 @@ public class Application extends Controller {
 	{
 		render();
 	}
+	
+	public static void gameRow(String gameName, String gameId)
+	{
+		List<String> gameFeatures = new ArrayList<String>();
+		gameFeatures.add("matchmaking");
+		gameFeatures.add("voice"); 
+		
+		render(gameName, gameId, gameFeatures);
+	}
 }
