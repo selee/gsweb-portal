@@ -134,15 +134,16 @@ function initNewGame()
 		if(gameName)
 		{
 			var newGame = {"name": gameName};
-			$.post(
-				couch + '/application/',
-				'application/json',
-				newGame,
-				function(data){
+			$.ajax({
+				type: 'POST',
+				url: couch + '/application/',
+				dataType: 'application/json',
+				data: newGame,
+				success: function(data){
 					newGameData = $.parseJSON(data);
 					addRow(encodeURI(gameName), newGameData.id);
 				}
-			);
+			});
 			
 		}
 	});
