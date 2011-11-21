@@ -3,6 +3,7 @@ var featuresCollapsed = new Array();
 var featuresList = new Array();
 var numFeatures = 0;
 var user;
+var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com';
 
 $(document).ready(function()
 {
@@ -13,19 +14,17 @@ $(document).ready(function()
 
 function getUser()
 {
-	$.get('http://ec2-67-202-6-195.compute-1.amazonaws.com/person/79bfcd53a7e657367f5bf443370018f9', 
-	function(data)
+	$.getJSON(couch + '/person/79bfcd53a7e657367f5bf443370018f9', 
+	function(user)
 	{
-		user = $.parseJSON(data);
 		
 		$('#welcome').text("Welcome, " + user.owner);
 		
 		for(var i = 0; i < user.applications.length; i++)
 		{
-			$.get('http://ec2-67-202-6-195.compute-1.amazonaws.com/application/' + user.applications[0], 
-			function(appData)
+			$.getJSON('http://ec2-67-202-6-195.compute-1.amazonaws.com/application/' + user.applications[0], 
+			function(app)
 			{
-				app = $.parseJSON(appData);
 				addRow(encodeURI(app.name), app._id);
 			});
 		}
@@ -46,6 +45,8 @@ function addGames()
 
 function addRow(name, id)
 {
+	
+	
 	$('#games-list').append('<div id="game-' + id + '"></div>');
 	$('#game-' + id).load(createRow({gameId: id, gameName: name }),
 		function()
@@ -53,7 +54,7 @@ function addRow(name, id)
 			initArrow(id);
 			initFeatures(id);
 			initDelete(id);
-		});
+		});	
 }
 
 function initDelete(n)
@@ -132,8 +133,17 @@ function initNewGame()
 		var gameName = $('#new-game-name').val();
 		if(gameName)
 		{
-			addRow(encodeURI(gameName), numGames);
-			numGames++;
+			var newGame = {"name": gameName};
+			$.post(
+				couch + '/application/',
+				'application/json',
+				newGame,
+				function(data){
+					newGameData = $.parseJSON(data);
+					addRow(encodeURI(gameName), newGameData.id);
+				}
+			});
+			
 		}
 	});
 }
