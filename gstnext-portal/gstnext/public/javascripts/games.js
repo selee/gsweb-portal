@@ -138,7 +138,7 @@ function initNewGame()
 				type: 'POST',
 				url: couch + '/application/',
 				dataType: 'json',
-				contentType: 'application/json',
+				contentType: 'application/json; charset=utf-8',
 				data: newGame,
 				success: function(data){
 					newGameData = $.parseJSON(data);
