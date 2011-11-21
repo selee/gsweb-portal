@@ -142,6 +142,7 @@ function initNewGame()
 				contentType: 'application/json; charset=utf-8',
 				data: newGame,
 				success: function(data){
+					alert(data);
 					newGameData = $.parseJSON(data);
 					addRow(encodeURI(gameName), newGameData.id);
 				}
