@@ -22,7 +22,7 @@ function getUser()
 		
 		for(var i = 0; i < user.applications.length; i++)
 		{
-			$.getJSON('http://ec2-67-202-6-195.compute-1.amazonaws.com/application/' + user.applications[0], 
+			$.getJSON(couch + '/application/' + user.applications[0], 
 			function(app)
 			{
 				addRow(encodeURI(app.name), app._id);
