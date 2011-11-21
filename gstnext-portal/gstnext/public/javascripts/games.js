@@ -133,17 +133,17 @@ function initNewGame()
 		var gameName = $('#new-game-name').val();
 		if(gameName)
 		{
-			//var newGame = {"name": gameName};
-			var newGame = '{"name": "' + gameName + '"}';
+			var newGame = {name: gameName};
 			$.ajax({
 				type: 'POST',
 				url: couch + '/application/',
 				dataType: 'json',
 				contentType: 'application/json; charset=utf-8',
-				data: newGame,
+				data: JSON.stringify(newGame),
 				success: function(data){
 					alert(data);
 					newGameData = $.parseJSON(data);
+					alert(newGameData);
 					addRow(encodeURI(gameName), newGameData.id);
 				}
 			});
