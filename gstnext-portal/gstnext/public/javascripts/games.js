@@ -3,7 +3,7 @@ var featuresCollapsed = new Array();
 var featuresList = new Array();
 var numFeatures = 0;
 var user;
-var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com';
+var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
 
 $(document).ready(function()
 {
