@@ -133,7 +133,8 @@ function initNewGame()
 		var gameName = $('#new-game-name').val();
 		if(gameName)
 		{
-			var newGame = {"name": gameName};
+			//var newGame = {"name": gameName};
+			var newGame = '{"name": "' + gameName + '"}';
 			$.ajax({
 				type: 'POST',
 				url: couch + '/application/',
