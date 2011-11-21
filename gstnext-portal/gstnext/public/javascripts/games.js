@@ -137,7 +137,7 @@ function initNewGame()
 			$.ajax({
 				type: 'POST',
 				url: couch + '/application/',
-				dataType: 'application/json',
+				dataType: 'json',
 				data: newGame,
 				success: function(data){
 					newGameData = $.parseJSON(data);
