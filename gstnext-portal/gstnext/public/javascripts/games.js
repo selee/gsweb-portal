@@ -3,6 +3,7 @@ var featuresCollapsed = new Array();
 var featuresList = new Array();
 var numFeatures = 0;
 var user;
+var userId = '79bfcd53a7e657367f5bf443370018f9';
 //var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
 var couch = '/couch';
 $(document).ready(function()
@@ -14,36 +15,25 @@ $(document).ready(function()
 
 function getUser()
 {
-	$.getJSON(couch + '/person/79bfcd53a7e657367f5bf443370018f9', 
-	function(user)
+	$.getJSON(couch + '/person/' + userId, 
+	function(data)
 	{
-		
+		user = data;
 		$('#welcome').text("Welcome, " + user.owner);
 		
 		for(var i = 0; i < user.applications.length; i++)
 		{
-			$.getJSON(couch + '/application/' + user.applications[0], 
+			$.getJSON(couch + '/application/' + user.applications[i], 
 			function(app)
 			{
-				addRow(encodeURI(app.name), app._id);
+				addRow(encodeURI(app.name), app._id, app._rev);
 			});
 		}
 	});
 	
 }
 
-//temporary function to add a bunch of games
-function addGames()
-{
-	addRow(encodeURI('Street Fighter III: 3rd Strike'), numGames);
-	numGames++;
-	addRow(encodeURI('Grand Theft Auto IV'), numGames);
-	numGames++;
-	addRow(encodeURI('Red Dead Redemption'), numGames);
-	numGames++;
-}
-
-function addRow(name, id)
+function addRow(name, id, rev)
 {
 	
 	
@@ -53,15 +43,31 @@ function addRow(name, id)
 		{
 			initArrow(id);
 			initFeatures(id);
-			initDelete(id);
+			initDelete(id, rev);
 		});	
 }
 
-function initDelete(n)
+function initDelete(n, rev)
 {
 	$('#delete-' + n).click(function()
 	{
-		$('#game-' + n).remove();
+		$.ajax({
+			type: 'DELETE',
+			url: couch + '/application/' + n + '?rev=' + rev,
+			success: function(data){
+				$('#game-' + n).remove();
+				user.applications.splice(user.applications.indexOf(n), 1);
+				$.ajax({
+					type: 'POST',
+					url: couch + '/person/',
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					data: JSON.stringify(user),
+					success: function(data){
+					}
+				});
+			}
+		});
 	});
 }
 
@@ -142,6 +148,16 @@ function initNewGame()
 				data: JSON.stringify(newGame),
 				success: function(data){
 					addRow(encodeURI(gameName), data.id);
+					user.applications[user.applications.length] = data.id;
+					$.ajax({
+						type: 'POST',
+						url: couch + '/person/',
+						dataType: 'json',
+						contentType: 'application/json; charset=utf-8',
+						data: JSON.stringify(user),
+						success: function(data){
+						}
+					});
 				}
 			});
 			
