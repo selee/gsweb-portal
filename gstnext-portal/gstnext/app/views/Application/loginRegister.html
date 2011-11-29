@@ -1,50 +1,54 @@
 #{extends 'main.html' /}
 #{set title:'Next Technology - Login or Register' /}
-#{set pagename: 'login or register' /}
+#{set pagename: 'Log in or Register' /}
 #{set product: 'matchmaking' /}
 #{set 'moreStyles'}
 	#{stylesheet 'loginregister.css' /}
 #{/set}
 
-<div class="loginregister-box" id="register-box">
+#{set 'moreScripts'}
+	#{script 'loginRegister.js' /}
+#{/set}
+
+<div class="loginregister-box box" id="register-box">
 	<div class="box-header">
-		sign up for<br/>matchmaking now!
+		Sign up for<br/>matchmaking now!
 	</div>
 	<div class="form-contents">
-		<form>
+		<form id="register-form">
 			<div class="form-section">
-				<label for="username">user name</label>
+				<label for="owner">User Name</label>
 				<div class="form-input">
-					<input type="text" name="username" id="username" />
+					<input type="text" name="owner" id="username" />
 				</div>
 			</div>
 			<div class="form-section">
-				<label for="company">company</label>
+				<label for="company">Company</label>
 				<div class="form-input">
 					<input type="text" name="company" id="company" />
 				</div>
 			</div>
 			<div class="form-section" id="email-section">
-				<label for="email">email</label>
+				<label for="email">Email</label>
 				<div class="form-input">
 					<input type="text" name="email" id="email" />
 				</div>
 			</div>
 			<div class="form-section">
-				<label for="password">password</label>
+				<label for="password">Password</label>
 				<div class="form-input">
 					<input type="password" name="password" id="password" />
 				</div>
 			</div>
 			<div class="form-section">
-				<label for="passwordconfirm">retype password</label>
+				<label for="passwordconfirm">Retype Password</label>
 				<div class="form-input">
 					<input type="password" name="passwordconfirm" id="passwordconfirm" />
 				</div>
 			</div>
 			<div class="clear"> </div>
 			<div class="button" id="register-container">
-				<a href="#">
+				<a href="#" onClick="submitForm('#register-form'); return false;" id="register-submit">
 					<div>
 						<span>
 							Register
@@ -60,27 +64,27 @@
 		</form>
 	</div>
 </div>
-<div class="loginregister-box" id="login-box">
+<div class="loginregister-box box" id="login-box">
 	<div class="box-header">
-		already have an account?<br/>log in here!
+		Already have an account?<br/>Log in here!
 	</div>
 	<div class="form-contents">
-		<form>
+		<form id="login-form">
 			<div class="form-section">
-				<label for="username">user name</label>
+				<label for="owner">User Name</label>
 				<div class="form-input">
-					<input type="text" name="username" id="username" />
+					<input type="text" name="owner" id="username-login" />
 				</div>
 			</div>
 			<div class="form-section">
-				<label for="company">company</label>
+				<label for="password">Password</label>
 				<div class="form-input">
-					<input type="text" name="company" id="company" />
+					<input type="password" name="password" id="password-login" />
 				</div>
 			</div>
 			<div class="button-container">
 				<div class="clear button">
-					<a href="#">
+					<a href="#" onClick="submitForm('#login-form'); return false;" id="login-submit">
 						<div>
 							<span>Login</span>
 						</div>

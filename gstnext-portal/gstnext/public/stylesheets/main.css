@@ -1,7 +1,7 @@
 #inner-container
 {
 	width:900px;
-	background-color:#FFF;
+	background-color:#e8e8ea;
 	margin:auto;
 	height:100%;
 }
@@ -10,13 +10,14 @@
 {
 	height:100%;
 	width:100%;
-	background-color:#efeeea;
+	background-color:#353132;
 }
 
 body
 {
-	font-family:arial;
+	font-family:Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-weight:bold;
+	margin:0px;
 }
 
 html, body
@@ -34,18 +35,22 @@ html, body
 .banner-strip
 {
 	height:15px;
-	background-color:#005889;
+	background-color:#032202;
 }
-.banner-inner
-{
-	height:25px;
-	background-color:#79b0e6;
-	padding-left:20px;
-	padding-top:25px;
-	color:#FFF;
+.banner-inner{
+width: 100%;
+height: 80px;
+background: url(/public/images/bkg-green-grain.jpg) #00B200 repeat;
+color: #FFF;
 }
-
-
+#logo {
+float: left;
+display: block;
+width: 350px;
+height: 48px;
+background: url(/public/images/powered-by-gamespy-logo.png) transparent no-repeat left center;
+margin: 15px 20px 0;
+}
 .disclaimer
 {
 	font-size:8px;
@@ -54,7 +59,6 @@ html, body
 
 .box-header
 {
-	color:#005889;
 	font-size:25px;
 }
 
@@ -64,7 +68,27 @@ html, body
 }
 
 #welcome
-{
-	float:right; 
+{ 
 	margin-right:20px;
+	font-size:12px;
+}
+
+.box
+{
+	border:solid;
+	border-width:1px;
+	border-color:#000;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#page-name
+{
+	margin-bottom:20px;
+}
+
+.banner-text
+{
+	float:right;
+	margin:10px;
 }

@@ -17,7 +17,6 @@
 
 .menu-label
 {
-	color:#75a9e2;
 	font-size:14px;
 }
 
@@ -26,6 +25,7 @@ img.arrow
 	padding-left:4px;
 	margin-top:0.9px;
 	float:left;
+	padding-right:5px;
 }
 
 .new-game-section
@@ -48,7 +48,7 @@ img.arrow
 .small-button
 {
 	background:url("/public/images/games/small-button.png") no-repeat transparent;
-	width:72px;
+	width:81px;
 	height:22px;
 	font-size:12px;
 	text-align:center;
@@ -103,7 +103,7 @@ img.arrow
 .game-name
 {
 	margin-top:5px;
-	margin-bottom:5px;
+	padding-bottom:5px;
 }
 
 .game-name:hover
@@ -151,10 +151,21 @@ img.arrow
 
 .game-feature
 {
+	border:solid;
+	border-width:1px 0;
 	padding-top:3px;
+	margin-top: -1px;
 }
 
 .greyed-out
 {
 	color:grey;
+}
+
+.plus
+{
+	padding-left:4px;
+	margin-top:0.9px;
+	float:left;
+	padding-right:5px;
 }

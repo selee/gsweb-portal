@@ -3,13 +3,12 @@ var featuresCollapsed = new Array();
 var featuresList = new Array();
 var numFeatures = 0;
 var user;
-//var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
-var couch = '/couch';
+var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
+//var couch = '/couch';
 $(document).ready(function()
 {
 	getUser();
 	initNewGame();
-	//addGames();
 });
 
 function getUser()
@@ -115,12 +114,14 @@ function initArrow(n)
 			//uncollapse feature list for game
 			featuresCollapsed[n] = false;
 			$('#features-' + n).slideDown();
+			$('#feature-arrow-' + n).attr('src', '/public/images/arrow_down_16.png');
 		} 
 		else 
 		{
 			//else collapse feature list
 			featuresCollapsed[n] = true;
 			$('#features-' + n).slideUp();
+			$('#feature-arrow-' + n).attr('src', '/public/images/arrow_right_16.png');
 		}
 	});
 	featuresCollapsed[n] = true;
