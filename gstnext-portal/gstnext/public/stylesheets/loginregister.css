@@ -6,7 +6,7 @@
 .loginregister-box
 {
 	width:400px;
-	height:300px;
+	min-height:300px;
 	background-color:#efeeea;
 	margin-top:20px;
 	margin-left:20px;
@@ -99,4 +99,10 @@
 }
 
 
-
+#error
+{
+	padding-top:10px;
+	color:#F00;
+	text-align:center;
+	
+}

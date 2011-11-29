@@ -21,8 +21,41 @@ $(document).ready(function()
 });
 
 
-function submitForm(formId)
+function submitRegister(formId)
 {
 	var formData = $(formId).serializeJSON();
-	alert(JSON.stringify(formData));	
+	validate(formData);
+	alert(JSON.stringify(formData));
 }
+function submitLogin(formId)
+{
+	var formData = $(formId).serializeJSON();
+	alert(JSON.stringify(formData));
+}
+
+function validate(formData)
+{
+	$('#error').text('');
+	if (formData.owner == "")
+	{
+		$('#error').append('<div>User Name cannot be blank.</div>');
+	}
+	if(formData.password == "")
+	{
+		$('#error').append('<div>Password cannot be blank.</div>');
+	}
+	if (formData.password != formData.passwordconfirm)
+	{
+		$('#error').append('<div>Password Confirmation failed.</div>');
+	}
+	if(!validateEmail(formData.email))
+	{
+		$('#error').append('<div>Invalid email address.</div>');
+	}
+}
+
+function validateEmail(email) { 
+    var re = 
+    	/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+} 

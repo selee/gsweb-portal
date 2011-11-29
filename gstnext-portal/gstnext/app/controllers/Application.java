@@ -12,11 +12,7 @@ public class Application extends Controller {
 	public static void index() {
 		List<String> gameList = new ArrayList<String>();
 
-		
-		List<String> gameFeatures = new ArrayList<String>();
-		gameFeatures.add("matchmaking");
-		gameFeatures.add("voice");
-		render(gameList, gameFeatures);
+		render(gameList);
 	}
     
 	public static void loginRegister()
@@ -31,5 +27,10 @@ public class Application extends Controller {
 		gameFeatures.add("voice"); 
 		
 		render(gameName, gameId, gameFeatures);
+	}
+	
+	public static void tos()
+	{
+		render();
 	}
 }
