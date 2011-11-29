@@ -1,0 +1,56 @@
+#tos
+{
+	height:400px;
+	width:600px;
+	font:12px Arial;
+	overflow:scroll;
+	margin:auto;
+	margin-top:10px;
+	background-color:#FFF;
+}
+
+#tos-header
+{
+	font:20px Arial bold;
+	margin-top:20px;
+	text-align:center;
+}
+
+.button
+{
+
+	padding-top:4px;
+	width:81px;
+	height:23px;
+	font-size:12px;
+	text-align:center;
+	background:url("/public/images/loginregister/button.png") no-repeat transparent;
+}
+
+.button:active
+{
+	background:url("/public/images/loginregister/button-highlight.png") no-repeat transparent;
+}
+
+.button a
+{
+	color:#FFF;
+	text-decoration:none;
+}
+
+#button-container
+{
+	margin:auto;
+	margin-top:20px;
+	width:200px;
+}
+
+#accept-button
+{
+	float:left;
+}
+
+#decline-button
+{
+	float:right;
+}

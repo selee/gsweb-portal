@@ -48,7 +48,7 @@
 			</div>
 			<div class="clear"> </div>
 			<div class="button" id="register-container">
-				<a href="#" onClick="submitForm('#register-form'); return false;" id="register-submit">
+				<a href="#" onClick="submitRegister('#register-form'); return false;" id="register-submit">
 					<div>
 						<span>
 							Register
@@ -60,6 +60,8 @@
 			<div class="disclaimer">
 				FINE PRINT ABOUT WHAT YOU ARE
 				PRETENDING TO READ AND AGREEING TO
+			</div>
+			<div id="error">
 			</div>
 		</form>
 	</div>
@@ -73,7 +75,7 @@
 			<div class="form-section">
 				<label for="owner">User Name</label>
 				<div class="form-input">
-					<input type="text" name="owner" id="username-login" />
+					<input type="text" name="email" id="email-login" />
 				</div>
 			</div>
 			<div class="form-section">
@@ -84,7 +86,7 @@
 			</div>
 			<div class="button-container">
 				<div class="clear button">
-					<a href="#" onClick="submitForm('#login-form'); return false;" id="login-submit">
+					<a href="#" onClick="submitLogin('#login-form'); return false;" id="login-submit">
 						<div>
 							<span>Login</span>
 						</div>
