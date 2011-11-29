@@ -20,7 +20,7 @@
 .form-contents
 {
 	margin-top:5px;
-	color:#75a9e2;
+	color:#06b302;
 	font-size:12px;
 }
 
@@ -78,11 +78,11 @@
 .button
 {
 
-	padding-top:10px;
+	padding-top:4px;
 	clear:both;
-	width:155px;
-	height:45px;
-	font-size:20px;
+	width:81px;
+	height:23px;
+	font-size:12px;
 	text-align:center;
 	background:url("/public/images/loginregister/button.png") no-repeat transparent;
 }

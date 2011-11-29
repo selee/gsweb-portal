@@ -10,7 +10,6 @@ $(document).ready(function()
 {
 	getUser();
 	initNewGame();
-	//addGames();
 });
 
 function getUser()
@@ -121,12 +120,14 @@ function initArrow(n)
 			//uncollapse feature list for game
 			featuresCollapsed[n] = false;
 			$('#features-' + n).slideDown();
+			$('#feature-arrow-' + n).attr('src', '/public/images/arrow_down_16.png');
 		} 
 		else 
 		{
 			//else collapse feature list
 			featuresCollapsed[n] = true;
 			$('#features-' + n).slideUp();
+			$('#feature-arrow-' + n).attr('src', '/public/images/arrow_right_16.png');
 		}
 	});
 	featuresCollapsed[n] = true;
