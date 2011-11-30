@@ -3,8 +3,9 @@ var featuresCollapsed = new Array();
 var featuresList = new Array();
 var numFeatures = 0;
 var user;
-var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
-//var couch = '/couch';
+//var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
+var couch = '/couch';
+//var couch = '/node';
 (function( $ ){
 	$.fn.serializeJSON=function() {
 		var json = {};
@@ -24,8 +25,23 @@ $(document).ready(function()
 function submitRegister(formId)
 {
 	var formData = $(formId).serializeJSON();
-	validate(formData);
-	alert(JSON.stringify(formData));
+
+	if(validate(formData))
+	{
+		delete formData.passwordconfirm;
+		formData = JSON.stringify(formData);
+		
+		$.ajax({
+			type: 'POST',
+			url: couch + '/person/',
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			data: formData,
+			success: function(data){
+				alert("success");
+			}
+		});
+	}
 }
 function submitLogin(formId)
 {
@@ -35,23 +51,29 @@ function submitLogin(formId)
 
 function validate(formData)
 {
+	var error = false;
 	$('#error').text('');
-	if (formData.owner == "")
+	if (formData.username == "")
 	{
 		$('#error').append('<div>User Name cannot be blank.</div>');
+		error = true;
 	}
 	if(formData.password == "")
 	{
 		$('#error').append('<div>Password cannot be blank.</div>');
+		error = true;
 	}
 	if (formData.password != formData.passwordconfirm)
 	{
 		$('#error').append('<div>Password Confirmation failed.</div>');
+		error = true;
 	}
 	if(!validateEmail(formData.email))
 	{
 		$('#error').append('<div>Invalid email address.</div>');
+		error = true;
 	}
+	return !error;
 }
 
 function validateEmail(email) { 

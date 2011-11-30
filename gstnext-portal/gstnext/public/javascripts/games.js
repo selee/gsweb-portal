@@ -5,7 +5,8 @@ var numFeatures = 0;
 var user;
 var userId = '79bfcd53a7e657367f5bf443370018f9';
 //var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
-var couch = '/couch';
+//var couch = '/couch';
+var couch = '/node';
 $(document).ready(function()
 {
 	getUser();
@@ -18,7 +19,7 @@ function getUser()
 	function(data)
 	{
 		user = data;
-		$('#welcome').text("Welcome, " + user.owner);
+		$('#welcome').text("Welcome, " + user.username);
 		
 		for(var i = 0; i < user.applications.length; i++)
 		{
