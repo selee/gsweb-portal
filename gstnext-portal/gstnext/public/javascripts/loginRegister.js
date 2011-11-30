@@ -4,8 +4,8 @@ var featuresList = new Array();
 var numFeatures = 0;
 var user;
 //var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
-var couch = '/couch';
-//var couch = '/node';
+//var couch = '/couch';
+var couch = '/node';
 (function( $ ){
 	$.fn.serializeJSON=function() {
 		var json = {};
