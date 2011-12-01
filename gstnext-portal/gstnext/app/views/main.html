@@ -8,6 +8,7 @@
         #{get 'moreStyles' /}
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         <script src="@{'/public/javascripts/jquery-1.7.min.js'}" type="text/javascript" charset="utf-8"></script>
+        <script src="@{'/public/javascripts/main.js'}" type="text/javascript" charset="utf-8"></script>
         #{get 'moreScripts' /}
     </head>
     <body>
@@ -22,8 +23,8 @@
  				</div>
 				<div class="banner-inner">
 					<div class="banner-text">
-						<div id="page-name">
-							#{get 'pagename' /}
+						<div id="banner-buttons">
+							
 						</div>
 						<div id="welcome">
 						</div>
@@ -32,7 +33,9 @@
 				<div class="banner-strip">
 					&nbsp;
 				</div>
-	        	#{doLayout /}
+				<div id="page-content">
+		        	#{doLayout /}
+				</div>
 	        </div>
         </div>
     </body>

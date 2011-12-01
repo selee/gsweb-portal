@@ -15,14 +15,18 @@
 
 body
 {
-	font-family:Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-weight:bold;
+	font-family:Arial;
 	margin:0px;
 }
 
 html, body
 {
 	height:100%;
+}
+
+#page-content
+{
+	font-weight:bold;
 }
 
 .header
@@ -35,21 +39,23 @@ html, body
 .banner-strip
 {
 	height:15px;
-	background-color:#032202;
+	background: url(/public/images/headerbezel.png) repeat;
 }
 .banner-inner{
-width: 100%;
-height: 80px;
-background: url(/public/images/bkg-green-grain.jpg) #00B200 repeat;
-color: #FFF;
+	width: 100%;
+	height: 70px;
+	background: #e5e5e7 repeat;
+	color: #414143;
+	font-size: 30px;
+
 }
 #logo {
-float: left;
-display: block;
-width: 350px;
-height: 48px;
-background: url(/public/images/powered-by-gamespy-logo.png) transparent no-repeat left center;
-margin: 15px 20px 0;
+	float: left;
+	display: block;
+	width: 350px;
+	height: 59px;
+	background: url(/public/images/field-kit-logo.png) transparent no-repeat left center;
+	margin: 7px 0px 0 20px;
 }
 .disclaimer
 {
@@ -82,13 +88,34 @@ margin: 15px 20px 0;
 	border-radius: 15px;
 }
 
-#page-name
+#banner-buttons
 {
-	margin-bottom:20px;
+	margin-top:15px;
 }
+
+#banner-buttons .last
+{
+	border-right:0px;
+}
+
+.banner-button
+{
+	font-size:20px;
+	float:left;
+	padding-right:10px;
+	padding-left:10px;
+	border-right:1px solid #414143;;
+}
+
+.banner-button a
+{
+	text-decoration:none;
+	color:#414143;
+}
+
 
 .banner-text
 {
-	float:right;
-	margin:10px;
+	float:left;
+	margin: 10px 10px 10px 0px;
 }
