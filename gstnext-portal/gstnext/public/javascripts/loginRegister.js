@@ -38,8 +38,8 @@ function submitRegister(formId)
 			contentType: 'application/json; charset=utf-8',
 			data: formData,
 			success: function(data){
+				//data.id is id of person
 				alert(data.id);
-				alert(getCookie('session'));
 			}
 		});
 	}
