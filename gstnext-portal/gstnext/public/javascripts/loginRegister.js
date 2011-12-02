@@ -38,16 +38,45 @@ function submitRegister(formId)
 			contentType: 'application/json; charset=utf-8',
 			data: formData,
 			success: function(data){
-				//data.id is id of person
-				alert(data.id);
+				//fields: ok and id
+				//alert(JSON.stringify(data));
+				setCookie("id", data.id); 
+				redirect(data);
 			}
 		});
 	}
 }
+
+function redirect(data){
+	if(data.active == "true"){
+		setCookie("active", "true");
+		document.location.href = '/';
+	}
+	else
+	{
+		document.location.href= '/application/tos';
+	}
+}
+
 function submitLogin(formId)
 {
+	
 	var formData = $(formId).serializeJSON();
-	alert(JSON.stringify(formData));
+	formData = JSON.stringify(formData);
+		$.ajax({
+			type: 'POST',
+			url: couch + '/authenticate/',
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',
+			data: formData,
+			success: function(data){
+				//fields: ok and id
+				//alert(JSON.stringify(data));
+				//alert(data.id);
+				setCookie("id", data.id); 
+				redirect(data);
+			}
+		});
 }
 
 function validate(formData)
@@ -94,4 +123,12 @@ function getCookie(name) {
 			return c.substring(nameEQ.length,c.length);
 	}
 	return null;
+}
+
+function setCookie(c_name,value,exdays)
+{
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/";
+	document.cookie=c_name + "=" + c_value;
 }
