@@ -38,8 +38,14 @@ html, body
 
 .banner-strip
 {
-	height:15px;
+	height:12px;
 	background: url(/public/images/headerbezel.png) repeat;
+}
+
+.banner-strip2
+{
+	height:8px;
+	background-color:#04b203;
 }
 
 .banner
@@ -131,3 +137,9 @@ html, body
 	background-color:#FFF;
 }
 
+#pbg-logo-small
+{
+	float:right;
+	padding-right:20px;
+	padding-top:50px;
+}

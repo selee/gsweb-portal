@@ -4,9 +4,9 @@ var featuresList = new Array();
 var numFeatures = 0;
 var user;
 var userId = '79bfcd53a7e657367f5bf443370018f9';
-//var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
+var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
 //var couch = '/couch';
-var couch = '/node';
+//var couch = '/node';
 $(document).ready(function()
 {
 	getUser();
@@ -19,7 +19,7 @@ function getUser()
 	function(data)
 	{
 		user = data;
-		$('#welcome').text("Welcome, " + user.username);
+		//$('#welcome').text("Welcome, " + user.username);
 		
 		for(var i = 0; i < user.applications.length; i++)
 		{
@@ -94,11 +94,13 @@ function initFeatures(n)
 			{
 				if($('#button-text-' + append).text() == 'activate')
 				{
+					alert('blah');
 					$('#key-' + append).text(createKey(n,x));
 					$('#button-text-' + append).text('deactivate');
 					$('#key-' + append).removeClass('greyed-out');
 				} else
 				{
+					alert('blah');
 					$('#button-text-' + append).text('activate');
 					$('#key-' + append).addClass('greyed-out');
 				}
@@ -158,6 +160,7 @@ function initNewGame()
 						contentType: 'application/json; charset=utf-8',
 						data: JSON.stringify(user),
 						success: function(data){
+							//do stuff
 						}
 					});
 				}
