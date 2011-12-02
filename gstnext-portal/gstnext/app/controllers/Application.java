@@ -12,7 +12,9 @@ public class Application extends Controller {
 	public static void index() {
 		List<String> gameList = new ArrayList<String>();
 
-		render(gameList);
+		List<String> gameFeatures = new ArrayList<String>();
+		gameFeatures.add("EasyMatch");
+		render(gameList, gameFeatures);
 	}
     
 	public static void loginRegister()
@@ -23,8 +25,7 @@ public class Application extends Controller {
 	public static void gameRow(String gameName, String gameId)
 	{
 		List<String> gameFeatures = new ArrayList<String>();
-		gameFeatures.add("matchmaking");
-		gameFeatures.add("voice"); 
+		gameFeatures.add("EasyMatch");
 		
 		render(gameName, gameId, gameFeatures);
 	}

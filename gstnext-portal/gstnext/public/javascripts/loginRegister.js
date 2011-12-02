@@ -6,6 +6,13 @@ var user;
 //var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
 //var couch = '/couch';
 var couch = '/node';
+
+//you don't need to be here!
+if(loggedIn)
+{
+	document.location.href = '/';
+}
+
 (function( $ ){
 	$.fn.serializeJSON=function() {
 		var json = {};
@@ -48,7 +55,7 @@ function submitRegister(formId)
 }
 
 function redirect(data){
-	if(data.active == "true"){
+	if(data.active){
 		setCookie("active", "true");
 		document.location.href = '/';
 	}
@@ -75,7 +82,25 @@ function submitLogin(formId)
 				//alert(data.id);
 				setCookie("id", data.id); 
 				redirect(data);
+			},
+
+			error: function(data)
+			{
+				if(!data)
+				{
+					alert("The server is down.");
+				}
+				else if(data.error)
+				{
+					alert(data.error);
+					
+				}
+				else
+				{
+					alert("Unexpected error occurred.");
+				}
 			}
+
 		});
 }
 

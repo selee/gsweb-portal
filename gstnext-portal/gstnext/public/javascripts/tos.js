@@ -9,7 +9,11 @@ $(document).ready(function(){
 			type: 'POST',
 			url: couch + '/acceptTOS/' + getCookie('id'),
 			success: function(data){
-				alert('success!');
+				document.location.href = '/';
+			},
+			error: function(){
+				alert('There was an error processing your request. Please re-log in and try again.');
+				//document.location.href = '/application/loginRegister';
 			}
 		});
 	});

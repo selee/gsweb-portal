@@ -120,13 +120,14 @@ img.arrow
 .feature-key
 {
 	width:150px;
-	float:right;
+	float:left;
 }
 
 .feature-name
 {
 	width:150px;
-	float:right;
+	float:left;
+	padding-left:60px;
 }
 
 .game-features

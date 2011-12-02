@@ -3,10 +3,15 @@ var featuresCollapsed = new Array();
 var featuresList = new Array();
 var numFeatures = 0;
 var user;
-var userId = '79bfcd53a7e657367f5bf443370018f9';
-var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
+//var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
 //var couch = '/couch';
-//var couch = '/node';
+var couch = '/node';
+		
+if(!loggedIn)
+{
+	document.location.href = '/application/loginRegister';
+}
+
 $(document).ready(function()
 {
 	getUser();
@@ -15,12 +20,23 @@ $(document).ready(function()
 
 function getUser()
 {
+
 	$.getJSON(couch + '/person/' + userId, 
 	function(data)
 	{
 		user = data;
 		//$('#welcome').text("Welcome, " + user.username);
 		
+		if(!user.applications)
+		{
+			return;
+		}
+
+		if(!user.active)
+		{
+			alert('not active!');
+		}
+
 		for(var i = 0; i < user.applications.length; i++)
 		{
 			$.getJSON(couch + '/application/' + user.applications[i], 
@@ -86,21 +102,20 @@ function initFeatures(n)
 {
 	for(var i = 0; i < numFeatures; i++)
 	{
+		var append = n + '-' + featuresList[0];
+		$('#key-' + append).text(createKey(n,featuresList[0]));
 		(function(x){
 			
 			var append = n + '-' + featuresList[x];
-			
 			$('#button-' + append).click(function()
 			{
 				if($('#button-text-' + append).text() == 'activate')
 				{
-					alert('blah');
 					$('#key-' + append).text(createKey(n,x));
 					$('#button-text-' + append).text('deactivate');
 					$('#key-' + append).removeClass('greyed-out');
 				} else
 				{
-					alert('blah');
 					$('#button-text-' + append).text('activate');
 					$('#key-' + append).addClass('greyed-out');
 				}
@@ -111,7 +126,7 @@ function initFeatures(n)
 
 function createKey(game, feature)
 {
-	return 'some key';
+	return game;
 }
 
 function initArrow(n)
@@ -152,6 +167,12 @@ function initNewGame()
 				data: JSON.stringify(newGame),
 				success: function(data){
 					addRow(encodeURI(gameName), data.id);
+					/*
+					if(!user.applications)
+					{
+						user.applications = new Array();
+					}
+	
 					user.applications[user.applications.length] = data.id;
 					$.ajax({
 						type: 'POST',
@@ -163,6 +184,7 @@ function initNewGame()
 							//do stuff
 						}
 					});
+					*/
 				}
 			});
 			
