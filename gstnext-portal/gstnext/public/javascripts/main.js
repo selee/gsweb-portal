@@ -1,7 +1,6 @@
 var loggedIn;
 var userId = getCookie("id");
 
-	//TODO: check if logged in
 	if(userId)
 	{
 		loggedIn = true;
@@ -19,12 +18,17 @@ $(document).ready(function()
 		deleteCookie('id');
 		deleteCookie('session');
 	});
+
 });
 
 function initMenu()
 {
-		addMenuOption('Manage', 'manage', '/');
-		addMenuOption('Feedback', 'feedback', '/application/feedback');
+	addMenuOption('Manage', 'manage', '/');
+	//TODO: Official thread for FieldKit?
+	addMenuOption('Forum', 'forum', 'http://forum.unity3d.com/forums/32-Assets-and-Asset-Store?s=253e24de7a7e4f6b4353dcde7a7f2fa7');
+
+	addMenuOption('Contact Us', 'contact-us', emailUs());	
+
 	if (loggedIn) {
 		addMenuOption('Logout', 'logout', '/application/loginRegister', true);
 	} else {		
@@ -85,3 +89,15 @@ function deleteCookie(name)
 	function getUrlVar(name){
 		return getUrlVars()[name];
 	}
+function emailUs()
+{
+
+	var fk = 'fieldkit';
+	var gs = 'gamespy';
+	var com = '.com';
+
+	var mailTo = 'mailto:' + fk + '@' + gs + com;
+
+	return mailTo;
+
+}
