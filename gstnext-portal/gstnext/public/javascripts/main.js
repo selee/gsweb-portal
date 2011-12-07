@@ -1,3 +1,37 @@
+STATE =
+{
+	LOGIN : "login",
+	TOS: "tos",
+	GAME: "game"
+};
+
+var page = '#page-content';
+
+var state;
+	
+function changeState(newState)
+{
+	state = newState;
+	$(page).empty();
+	stateHandler();
+}
+
+function stateHandler()
+{
+	if(state == STATE.LOGIN){
+		//do login page stuff
+		initLoginPage(page);
+	}
+	else if(state == STATE.TOS){
+		//do terms of service page stuff
+		initTosPage(page);
+	} 
+	else if(state == STATE.GAME){
+		//do game page stuff
+		initGamePage(page);
+	}
+}
+
 var loggedIn;
 var userId = getCookie("id");
 
@@ -18,7 +52,9 @@ $(document).ready(function()
 		deleteCookie('id');
 		deleteCookie('session');
 	});
-
+	
+	//temp: init login/register page
+	changeState(STATE.LOGIN);
 });
 
 function initMenu()

@@ -1,0 +1,86 @@
+<div class="loginregister-box box" id="register-box">
+	<div class="box-header">
+		Sign up for<br/>matchmaking now!
+	</div>
+	<div class="form-contents">
+		<form id="register-form">
+			<div class="form-section">
+				<label for="username">User Name</label>
+				<div class="form-input">
+					<input type="text" name="username" id="username" />
+				</div>
+			</div>
+			<div class="form-section">
+				<label for="company">Company</label>
+				<div class="form-input">
+					<input type="text" name="company" id="company" />
+				</div>
+			</div>
+			<div class="form-section" id="email-section">
+				<label for="email">Email</label>
+				<div class="form-input">
+					<input type="text" name="email" id="email" />
+				</div>
+			</div>
+			<div class="form-section">
+				<label for="password">Password</label>
+				<div class="form-input">
+					<input type="password" name="password" id="password" />
+				</div>
+			</div>
+			<div class="form-section">
+				<label for="passwordconfirm">Retype Password</label>
+				<div class="form-input">
+					<input type="password" name="passwordconfirm" id="passwordconfirm" />
+				</div>
+			</div>
+			<div class="clear"> </div>
+			<div class="button" id="register-container">
+				<a href="#" onClick="submitRegister('#register-form'); return false;" id="register-submit">
+					<div>
+						<span id="register-button-text">
+							Register
+						<span>
+					</div>
+				</a>
+			</div>
+			
+			<div class="disclaimer">
+				FINE PRINT ABOUT WHAT YOU ARE
+				PRETENDING TO READ AND AGREEING TO
+			</div>
+			<div id="error">
+			</div>
+		</form>
+	</div>
+</div>
+<div class="loginregister-box box" id="login-box">
+	<div class="box-header">
+		Already have an account?<br/>Log in here!
+	</div>
+	<div class="form-contents">
+		<form id="login-form">
+			<div class="form-section">
+				<label for="email">Email</label>
+				<div class="form-input">
+					<input type="text" name="email" id="email-login" />
+				</div>
+			</div>
+			<div class="form-section">
+				<label for="password">Password</label>
+				<div class="form-input">
+					<input type="password" name="password" id="password-login" />
+				</div>
+			</div>
+			<div class="button-container">
+				<div class="clear button">
+					<a href="#" onClick="submitLogin('#login-form'); return false;" id="login-submit">
+						<div>
+							<span id="login-submit-text">Login</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

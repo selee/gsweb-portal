@@ -3,15 +3,19 @@ var featuresCollapsed = new Array();
 var featuresList = new Array();
 var numFeatures = 0;
 var user;
-//var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/couch/';
+var couch = 'http://ec2-67-202-6-195.compute-1.amazonaws.com/node/';
 //var couch = '/couch';
-var couch = '/node';
+//var couch = '/node';
 
-//you don't need to be here!
-if(loggedIn)
+function initLoginPage(page)
 {
-	document.location.href = '/';
-}
+	
+	if(loggedIn)
+	{
+		changeState(STATE.GAMES);
+	}
+	$(page).load('/public/html/loginRegister.html')
+};
 
 (function( $ ){
 	$.fn.serializeJSON=function() {
@@ -22,11 +26,6 @@ if(loggedIn)
 		return json;
 	};
 })( jQuery );
-
-$(document).ready(function()
-{
-	
-});
 
 
 function submitRegister(formId)
@@ -61,7 +60,8 @@ function redirect(data){
 	}
 	else
 	{
-		document.location.href= '/application/tos';
+		//document.location.href= '/application/tos';
+		//TODO: implement redirecty stuff
 	}
 }
 

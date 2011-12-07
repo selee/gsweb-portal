@@ -7,16 +7,18 @@ var user;
 //var couch = '/couch';
 var couch = '/node';
 		
-if(!loggedIn)
-{
-	document.location.href = '/application/loginRegister';
-}
 
-$(document).ready(function()
+
+function initGamesPage()
 {
+	if(!loggedIn)
+	{
+		//document.location.href = '/application/loginRegister';
+	}
+	
 	getUser();
 	initNewGame();
-});
+};
 
 function getUser()
 {
