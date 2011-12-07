@@ -13,8 +13,12 @@ function initGamesPage()
 {
 	if(!loggedIn)
 	{
-		//document.location.href = '/application/loginRegister';
+		changeState(STATE.LOGIN);
 	}
+	
+	$(page).load('/public/html/games.html', function(){
+		$(page).slideDown();
+	});
 	
 	getUser();
 	initNewGame();
