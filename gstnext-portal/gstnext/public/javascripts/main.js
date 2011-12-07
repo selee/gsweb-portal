@@ -12,8 +12,9 @@ var state;
 function changeState(newState)
 {
 	state = newState;
-	$(page).empty();
-	stateHandler();
+	$(page).slideUp(function(){
+		stateHandler();
+	});
 }
 
 function stateHandler()
@@ -52,6 +53,7 @@ $(document).ready(function()
 		deleteCookie('id');
 		deleteCookie('session');
 	});
+	
 	
 	//temp: init login/register page
 	changeState(STATE.LOGIN);

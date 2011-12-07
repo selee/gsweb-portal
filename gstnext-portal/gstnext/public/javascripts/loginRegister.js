@@ -12,9 +12,13 @@ function initLoginPage(page)
 	
 	if(loggedIn)
 	{
-		changeState(STATE.GAMES);
+		//alert('logged in');
+		//changeState(STATE.GAMES);
 	}
-	$(page).load('/public/html/loginRegister.html')
+	$(page).load('/public/html/loginRegister.html', function(){
+		
+		$(page).slideDown();
+	});
 };
 
 (function( $ ){
