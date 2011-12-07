@@ -60,12 +60,11 @@ function submitRegister(formId)
 function redirect(data){
 	if(data.active){
 		setCookie("active", "true");
-		document.location.href = '/';
+		changeState(STATE.GAMES);
 	}
 	else
 	{
-		//document.location.href= '/application/tos';
-		//TODO: implement redirecty stuff
+		changeState(STATE.TOS);
 	}
 }
 
